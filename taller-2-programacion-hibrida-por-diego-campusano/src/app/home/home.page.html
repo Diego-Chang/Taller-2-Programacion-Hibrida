@@ -21,7 +21,7 @@
     </div>
   </ion-card>
 
-  <ion-fab *ngIf="toggleCheck()" slot="fixed" vertical="bottom" horizontal="start"> <!--Hides fab if toggleCheck() returns false-->
+  <ion-fab *ngIf="toggleCheckValue" slot="fixed" vertical="bottom" horizontal="start"> <!--Hides fab if toggleCheck() returns false-->
     <ion-fab-button (click)="deleteQuoteHomePage()"> <!--Executes deleteQuoteHomePage() on click-->
       <ion-icon name="close"></ion-icon> <!--Icon for the button-->
     </ion-fab-button>

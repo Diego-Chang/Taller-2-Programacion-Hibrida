@@ -21,6 +21,7 @@ export class HomePage implements OnInit{
     quote: "Lorem Ipsum",
     author: "Dolor Est"
   }
+
   toggleCheckValue: boolean = false //Saves state of toggle from Configuration Page.
 
   constructor(
@@ -31,13 +32,21 @@ export class HomePage implements OnInit{
   }
 
   async ngOnInit() {
+    
     await this.quoteManagerService.startPlugin() //On Initiate starts DB plugin.
 
-    this.randomQuote = await this.quoteManagerService.getQuoteListRandom() //On Initiate gets a random quote for RandomQuote from the Quote Managing Service.
+    console.log(this.randomQuote) //Debugging.
+    console.log(this.toggleCheckValue)//Debugging.
+  }
+
+  async ionViewWillEnter(){
+    console.log("ionViewWIllEnter") //Debugging.
 
     this.toggleCheckValue = await this.configurationService.getDeleteFromHomePage() //On Initiate gets the state of the toggle saved on the Configuration Service.
 
-    console.log(this.randomQuote) //Debugging.
+    this.randomQuote = await this.quoteManagerService.getQuoteListRandom() //On Initiate gets a random quote for RandomQuote from the Quote Managing Service.
+
+    await this.quoteManagerService.startPlugin() //On Initiate starts DB plugin.
   }
 
   toggleCheck() { return this.toggleCheckValue } //Returns value of the toggle of Configuration Page for evaluation on html.
