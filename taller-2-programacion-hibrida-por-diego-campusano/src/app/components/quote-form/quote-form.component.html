@@ -1,0 +1,52 @@
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>Crea una nueva lista</ion-card-title>
+  </ion-card-header>
+
+  <ion-item>
+    <ion-input 
+      [(ngModel)]="quote"
+      required="required"
+      minlength="5" 
+      #quoteInput="ngModel" 
+      type="string" 
+      label="Cita" 
+      labelPlacement="stacked">
+    </ion-input> <!--Ion Input that saves it's value in quote-->
+  </ion-item>
+
+  <ion-item>
+    <ion-input 
+      [(ngModel)]="author" 
+      required="required" 
+      minlength="2" 
+      #nameInput="ngModel" 
+      type="string" 
+      label="Autor" 
+      labelPlacement="stacked" 
+      placeholder="Victor Jara">
+    </ion-input> <!--Ion Input that saves it's value on author-->
+  </ion-item>
+
+  <ion-button 
+  [disabled]="!quoteInput.valid || !nameInput.valid" 
+  (click)="onClick()" 
+  fill="clear">
+  AGREGAR +</ion-button> <!--Button that on click will execute on click. will be disabled according to validations-->
+
+  <ion-item> 
+    <ion-text
+    color="danger"
+    [hidden]="quoteInput.pristine || quoteInput.valid">
+    ¡Error! La cita debe contener un minimo de 5 caracteres. </ion-text>
+    <ion-text
+    color="danger"
+    [hidden]="nameInput.pristine || nameInput.valid">
+    ¡Error! El autor debe contener un minimo de 2 caracteres. </ion-text>
+    <ion-text
+    color="dark"
+    [hidden]="(!nameInput.pristine && !quoteInput.pristine) || !nameInput.pristine || !quoteInput.pristine">
+    La cita debe contener un minimo de 5 caracteres y el autor un minimo de 2 caracteres.</ion-text>
+  </ion-item> <!--Various error messages that will pop according to validations-->
+
+</ion-card>

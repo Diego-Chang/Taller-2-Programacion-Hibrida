@@ -1,0 +1,15 @@
+<ion-card>
+    <ion-list *ngFor="let q of quotes"> <!--Creates multiple instances of the item in the list by going through the values of Array called quotes, with q being each item on it-->
+      <ion-item>
+        <ion-card-header>
+          <ion-card-title>{{q.quote}}</ion-card-title> <!--Receives a value of quote from q-->
+          <div><br/>
+            <ion-card-subtitle style="float:right">{{q.author}}</ion-card-subtitle> <!--Receives a value of author from q-->
+          </div>
+        </ion-card-header>
+        <ion-button (click)="deleteQuote(q.id ?? 0)" slot="end"> <!--On click will execute deleteQuote() and give it as a parameter the value of id from correspondent q-->
+          <ion-icon icon="trash-outline"></ion-icon> <!--Icon for the button-->
+        </ion-button>
+      </ion-item>
+    </ion-list>
+</ion-card>

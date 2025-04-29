@@ -1,0 +1,20 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start"> <!--Places button at the start of toolbar-->
+      <ion-back-button defaultHref="/home"/> <!--On click the app will go to this route-->
+    </ion-buttons>
+    <ion-title>Configuration</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-item>
+      <ion-toggle
+      [(ngModel)]="toggleCheck"
+      (ionChange)="toggleChange()"
+      >Permitir eliminar citas en el inicio</ion-toggle> <!--Saves the state of toggle to toggleCheck and on change will execute toggleChange()-->
+    </ion-item>
+  </ion-card>
+</ion-content>
+

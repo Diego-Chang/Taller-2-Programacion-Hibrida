@@ -1,0 +1,35 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Citas
+    </ion-title>
+    <ion-buttons slot="end"> <!--Places button to the right of the toolbar-->
+      <ion-button [routerLink]="['/configuration']"> <!--On click the app will go to this route-->
+        <ion-icon icon="settings-outline"></ion-icon> <!--Icon for the button-->
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card style="margin-left: 10%; margin-right: 10%; margin-top: 20%; min-width: 70%;">
+    <ion-card-title style="float: left; font-size: 30px;" color="primary">{{randomQuote.quote}}</ion-card-title> <!--Displays quote on randomQuote-->
+    <div><br/>
+      <ion-card-content style="float: right; font-size: 15px;">
+        <ion-text color="dark">{{randomQuote.author}}</ion-text> <!--Displays author on randomQuote-->
+      </ion-card-content>
+    </div>
+  </ion-card>
+
+  <ion-fab *ngIf="toggleCheck()" slot="fixed" vertical="bottom" horizontal="start"> <!--Hides fab if toggleCheck() returns false-->
+    <ion-fab-button (click)="deleteQuoteHomePage()"> <!--Executes deleteQuoteHomePage() on click-->
+      <ion-icon name="close"></ion-icon> <!--Icon for the button-->
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button [routerLink]="['/quote-manager']"> <!--On click the app will go to this route-->
+      <ion-icon name="add"></ion-icon> <!--Icon for the button-->
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

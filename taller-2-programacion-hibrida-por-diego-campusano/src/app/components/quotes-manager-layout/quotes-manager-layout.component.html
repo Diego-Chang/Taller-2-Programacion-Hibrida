@@ -1,0 +1,3 @@
+<app-quote-form (onCreate)="onCreateQuote($event)"/> <!--Loads Quote Form and passes the value of event emitted by onCreate() to onCreateQuote()-->
+<app-quote-manager-component (onDelete)="onDeleteQuote($event.id)" [quotes]="quotesList"/> <!--Loads Quote Manager and passes the value of event emitted by onDelete to onDeleteQuote()
+                                                                                            Also passes the values of quotesList to Array called quotes-->
